@@ -1,0 +1,29 @@
+<div class="layui-tab-item">
+
+    <fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;">
+        <legend>GOGO支付设置
+            - 免费注册使用、免签约、无手续费 -
+            <a target="_blank" href="https://www.gogozhifu.com/shop/user/index.html" class="layui-btn layui-btn-primary">点击进入商户后台</a>
+        </legend>
+    </fieldset>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">APPID：</label>
+        <div class="layui-input-inline w400">
+            <input type="text" name="pay[gogozhifu][appid]" placeholder="" value="{$config['pay']['gogozhifu']['appid']}" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">Secret：</label>
+        <div class="layui-input-inline w400">
+            <input type="text" name="pay[gogozhifu][appsecret]" placeholder="" value="{$config['pay']['gogozhifu']['appsecret']}" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">支付方式：</label>
+        <div class="layui-input-inline w400">
+            <input type="text" name="pay[gogozhifu][type]" placeholder="" value="{$config['pay']['gogozhifu']['type']}" class="layui-input">
+        </div>
+        <div class="layui-form-mid layui-word-aux">1：微信；2：支付宝；（多个用逗号分隔）</div>
+    </div>
+</div>

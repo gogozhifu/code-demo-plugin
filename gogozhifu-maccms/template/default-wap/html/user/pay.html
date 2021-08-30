@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width = device-width ,initial-scale = 1,minimum-scale = 1,maximum-scale = 1,user-scalable =no,"/>
+	<title>在线支付 - {$maccms.site_name}</title>
+	{include file="user/include" /}
+</head>
+
+<body class="bg-fff">
+<!--子页顶部-->
+<div class="zy-search zy-tit">
+	<div class="sch-w clearfix">
+		<a class="go-back" href="#"><img src="{$maccms.path_tpl}images/user/go-back.png"></a>
+		<div class="tit">
+			确认付款
+		</div>
+	</div>
+</div>
+<form method="post" target="_blank" action="{:url('go/gogozhifu')}">
+	<input type="hidden" name="order_id" value="{$info.order_id}">
+	<input type="hidden" name="order_code" value="{$info.order_code}">
+<div class="wrap mb80">
+	<div class="payment line">
+
+		<div class="radio-box">
+			<label class="radio" for="">订单编号：</label>
+			<p>{$info.order_code}</p>
+		</div>
+
+		<div class="radio-box">
+			<label class="radio" for="">订单金额：</label>
+			<p>{$info.order_price}元</p>
+		</div>
+
+		<div class="radio-box">
+			<label class="radio" for="">支付方式：</label>
+			<p>
+				<a target="_blank" href="https://www.gogozhifu.com">GOGO支付</a>
+				- 免费注册使用、个人免签约、无手续费、实时回调
+				<input type="hidden" name="payment" value="gogozhifu">
+			</p>
+		</div>
+
+
+		<div class="radio-box" id="paytype_box">
+			<label class="radio" for="">支付类型：</label>
+			<p>
+				<select class="paytype" id="paytype" name="paytype" style="height:50px;line-height: 50px;width:300px;">
+					{maccms:foreach name=":explode(',',$config.gogozhifu.type)"}
+					<option value ="{$vo}">
+						{if condition="$vo==1"}微信
+						{elseif condition="$vo==2"/}支付宝{/if}
+					</option>
+					{/maccms:foreach}
+				</select>
+			</p>
+		</div>
+
+	</div>
+</div>
+
+<div class="pch-foot clearfix">
+
+	<input class="btn ml10" type="submit" name="do" value="确认付款" id="btn_submit" >
+	<div class="total cf-total " style="margin-top: 1em;">
+		支付金额：<span class="price">￥<span id="cart_price_total">{$info.order_price}</span></span>
+	</div>
+</div>
+</form>
+
+<!--loading start-->
+<div class="loading_box"></div>
+<!--loading end-->
+
+<script>
+	$(".paytype").change(function() {
+		$('#paytype').val( $(this).val() );
+	});
+</script>
+</body>
+</html>
