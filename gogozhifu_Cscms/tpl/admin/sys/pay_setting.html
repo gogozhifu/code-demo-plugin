@@ -1,0 +1,272 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset=utf-8>
+    <meta name="robots" content="noindex,nofollow">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="<?=Web_Path?>packs/layui/css/layui.css">
+    <link rel="stylesheet" href="<?=Web_Path?>packs/admin/css/font.css">
+    <link rel="stylesheet" href="<?=Web_Path?>packs/admin/css/style.css">
+    <script src="<?=Web_Path?>packs/js/jquery.min.js"></script>
+    <script src="<?=Web_Path?>packs/layui/layui.js"></script>
+    <script src="<?=Web_Path?>packs/admin/js/cscms.js"></script>
+</head>
+<body id="index_setting">
+    <span class="layui-breadcrumb" >
+        <a ><cite><i class="fa fa-map-marker"></i><?=L('tpl_01')?></cite></a>
+        <a href="javascript:;"><?=L('tpl_ps_01')?></a>
+        <a href="<?=site_url('pay')?>"><?=L('tpl_ps_02')?></a>
+    </span>
+    <form class="layui-form layui-form-pane" action="<?=site_url('pay/save')?>" method="post">
+        <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+            <ul class="layui-tab-title">
+                <li class="layui-this"><?=L('tpl_ps_03')?></li>
+                <li><?=L('tpl_ps_04')?></li>
+                <li><?=L('tpl_ps_05')?></li>
+                <li><?=L('tpl_ps_06')?></li>
+                <li><?=L('tpl_ps_07')?></li>
+                <li><?=L('tpl_ps_08')?></li>
+                <li>GOGO支付</li>
+            </ul>
+            <div class="layui-tab-content">
+                <div class="layui-tab-item layui-show">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label"><?=L('tpl_ps_09')?></label>
+                        <div class="layui-input-inline" onclick="cscms.show_hide('cs','CS_Cspay')">
+                            <input type="radio" name="CS_Cspay" value="1" title="<?=L('tpl_ps_14')?>" <?php if(CS_Cspay==1){echo 'checked';}?> >
+                            <input type="radio" name="CS_Cspay" value="0" title="<?=L('tpl_ps_15')?>" <?php if(CS_Cspay==0){echo 'checked';}?> >
+                        </div>
+                    </div>
+                    <div class="cs cs1" <?php if(CS_Cspay==0){echo 'style="display:none"';}?>>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label"><?=L('tpl_ps_10')?></label>
+                            <div class="layui-input-inline">
+                                <a class="apply-link colorl" href="http://www.aitaofu.com/" target="_blank">http://www.aitaofu.com/<?=L('tpl_ps_32')?></a>
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label"><?=L('tpl_ps_11')?></label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="CS_Cspay_ID" value="<?=CS_Cspay_ID?>" placeholder="<?=L('tpl_ps_11')?>" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label"><?=L('tpl_ps_12')?></label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="CS_Cspay_Key" value="<?=CS_Cspay_Key?>" placeholder="<?=L('tpl_ps_12')?>" class="layui-input">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-tab-item">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label"><?=L('tpl_ps_13')?></label>
+                        <div class="layui-input-inline" onclick="cscms.show_hide('zfb','CS_Alipay')">
+                            <input type="radio" name="CS_Alipay" value="1" title="<?=L('tpl_ps_14')?>" <?php if(CS_Alipay==1){echo 'checked';}?> >
+                            <input type="radio" name="CS_Alipay" value="0" title="<?=L('tpl_ps_15')?>" <?php if(CS_Alipay==0){echo 'checked';}?> >
+                        </div>
+                    </div>
+                    <div class="zfb zfb1" <?php if(CS_Alipay==0){echo 'style="display:none"';}?>>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label"><?=L('tpl_ps_10')?></label>
+                            <div class="layui-input-inline">
+                                <a class="apply-link colorl" href="https://www.alipay.com/" target="_blank">https://www.alipay.com/</a>
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label"><?=L('tpl_ps_16')?></label>
+                            <div class="layui-input-inline" onclick="cscms.show_hide('zfbjk','CS_Alipay_JK');">
+                                <input type="radio" name="CS_Alipay_JK" value="1" title="<?=L('tpl_ps_17')?>" <?php if(CS_Alipay_JK==1){echo 'checked';}?> >
+                                <input type="radio" name="CS_Alipay_JK" value="2" title="<?=L('tpl_ps_18')?>" <?php if(CS_Alipay_JK==2){echo 'checked';}?> >
+                            </div>
+                        </div>
+                        <div class="zfbjk zfbjk1 zfbjk2" <?php if(CS_Alipay_JK==3){echo 'style="display:none"';}?>>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label"><?=L('tpl_ps_19')?></label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="CS_Alipay_ID" value="<?=CS_Alipay_ID?>" placeholder="<?=L('tpl_ps_20')?>" class="layui-input">
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label"><?=L('tpl_ps_21')?></label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="CS_Alipay_Key" value="<?=CS_Alipay_Key?>" placeholder="<?=L('tpl_ps_22')?>" class="layui-input">
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label"><?=L('tpl_ps_23')?></label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="CS_Alipay_Name" value="<?=CS_Alipay_Name?>" placeholder="<?=L('tpl_ps_24')?>" class="layui-input">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-tab-item">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label"><?=L('tpl_ps_25')?></label>
+                        <div class="layui-input-inline" onclick="cscms.show_hide('wx','CS_Wxpay')">
+                            <input type="radio" name="CS_Wxpay" value="1" title="<?=L('tpl_ps_14')?>" <?php if(CS_Wxpay==1){echo 'checked';}?> >
+                            <input type="radio" name="CS_Wxpay" value="0" title="<?=L('tpl_ps_15')?>" <?php if(CS_Wxpay==0){echo 'checked';}?> >
+                        </div>
+                    </div>
+                    <div class="wx wx1" <?php if(CS_Wxpay==0){echo 'style="display:none"';}?>>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label"><?=L('tpl_ps_10')?></label>
+                            <div class="layui-input-inline">
+                                <a class="apply-link colorl" href="https://pay.weixin.qq.com/" target="_blank">https://pay.weixin.qq.com/</a>
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label"><?=L('tpl_ps_11')?></label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="CS_Wxpay_ID" value="<?=CS_Wxpay_ID?>" placeholder="商户APPID" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label"><?=L('tpl_ps_12')?></label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="CS_Wxpay_Key" value="<?=CS_Wxpay_Key?>" placeholder="商户<?=L('tpl_ps_12')?>" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label"><?=L('tpl_ps_26')?></label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="CS_Wxpay_Mchid" value="<?=CS_Wxpay_Mchid?>" placeholder="<?=L('tpl_ps_26')?>" class="layui-input">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-tab-item">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label"><?=L('tpl_ps_27')?></label>
+                        <div class="layui-input-inline" onclick="cscms.show_hide('cft','CS_Tenpay')">
+                            <input type="radio" name="CS_Tenpay" value="1" title="<?=L('tpl_ps_14')?>" <?php if(CS_Tenpay==1){echo 'checked';}?> >
+                            <input type="radio" name="CS_Tenpay" value="0" title="<?=L('tpl_ps_15')?>" <?php if(CS_Tenpay==0){echo 'checked';}?> >
+                        </div>
+                    </div>
+                    <div class="cft cft1" <?php if(CS_Tenpay==0){echo 'style="display:none"';}?>>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label"><?=L('tpl_ps_10')?></label>
+                            <div class="layui-input-inline">
+                                <a class="apply-link colorl" href="http://www.tenpay.com/" target="_blank">http://www.tenpay.com/</a>
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label"><?=L('tpl_ps_11')?></label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="CS_Tenpay_ID" value="<?=CS_Tenpay_ID?>" placeholder="<?=L('tpl_ps_11')?>" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label"><?=L('tpl_ps_12')?></label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="CS_Tenpay_Key" value="<?=CS_Tenpay_Key?>" placeholder="<?=L('tpl_ps_12')?>" class="layui-input">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-tab-item">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label"><?=L('tpl_ps_28')?></label>
+                        <div class="layui-input-inline" onclick="cscms.show_hide('wy','CS_Wypay')">
+                            <input type="radio" name="CS_Wypay" value="1" title="<?=L('tpl_ps_14')?>" <?php if(CS_Wypay==1){echo 'checked';}?> >
+                            <input type="radio" name="CS_Wypay" value="0" title="<?=L('tpl_ps_15')?>" <?php if(CS_Wypay==0){echo 'checked';}?> >
+                        </div>
+                    </div>
+                    <div class="wy wy1" <?php if(CS_Wypay==0){echo 'style="display:none"';}?>>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label"><?=L('tpl_ps_10')?></label>
+                            <div class="layui-input-inline">
+                                <a class="apply-link colorl" href="http://www.chinabank.com.cn/" target="_blank">http://www.chinabank.com.cn/</a>
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label"><?=L('tpl_ps_11')?></label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="CS_Wypay_ID" value="<?=CS_Wypay_ID?>" placeholder="<?=L('tpl_ps_11')?>" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label"><?=L('tpl_ps_12')?></label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="CS_Wypay_Key" value="<?=CS_Wypay_Key?>" placeholder="<?=L('tpl_ps_12')?>" class="layui-input">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-tab-item">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label"><?=L('tpl_ps_29')?></label>
+                        <div class="layui-input-inline" onclick="cscms.show_hide('yb','CS_Ybpay')">
+                            <input type="radio" name="CS_Ybpay" value="1" title="<?=L('tpl_ps_14')?>" <?php if(CS_Ybpay==1){echo 'checked';}?> >
+                            <input type="radio" name="CS_Ybpay" value="0" title="<?=L('tpl_ps_15')?>" <?php if(CS_Ybpay==0){echo 'checked';}?> >
+                        </div>
+                    </div>
+                    <div class="yb yb1" <?php if(CS_Ybpay==0){echo 'style="display:none"';}?>>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label"><?=L('tpl_ps_10')?></label>
+                            <div class="layui-input-inline">
+                                <a class="apply-link colorl" href="http://www.yeepay.com/" target="_blank">http://www.yeepay.com/</a>
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label"><?=L('tpl_ps_11')?></label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="CS_Ybpay_ID" value="<?=CS_Ybpay_ID?>" placeholder="<?=L('tpl_ps_11')?>" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label"><?=L('tpl_ps_12')?></label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="CS_Ybpay_Key" value="<?=CS_Ybpay_Key?>" placeholder="<?=L('tpl_ps_12')?>" class="layui-input">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="layui-tab-item">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">GOGO支付</label>
+                        <div class="layui-input-inline" onclick="cscms.show_hide('gg','CS_Ggzf')">
+                            <input type="radio" name="CS_Ggzf" value="1" title="<?=L('tpl_ps_14')?>" <?php if(CS_Ggzf==1){echo 'checked';}?> >
+                            <input type="radio" name="CS_Ggzf" value="0" title="<?=L('tpl_ps_15')?>" <?php if(CS_Ggzf==0){echo 'checked';}?> >
+                        </div>
+                    </div>
+                    <div class="cs cs1" <?php if(CS_Ggzf==0){echo 'style="display:none"';}?>>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">免费注册</label>
+                        <div class="layui-input-inline">
+                            <a class="apply-link colorl" href="http://www.gogozhifu.com/" target="_blank">http://www.gogozhifu.com (个人免签支付，无手续费，免挂机)</a>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">APPID</label>
+                        <div class="layui-input-inline">
+                            <input type="text" name="CS_Ggzf_ID" value="<?=CS_Ggzf_ID?>" placeholder="APPID" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">APPSecret</label>
+                        <div class="layui-input-inline">
+                            <input type="text" name="CS_Ggzf_Key" value="<?=CS_Ggzf_Key?>" placeholder="APPSecret" class="layui-input">
+                        </div>
+                    </div>
+                </div>
+                </div>
+
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-input-block noborder">
+                    <button class="layui-btn submit_btn" lay-submit lay-filter="setting"><?=L('tpl_ps_30')?></button>
+                    <button type="reset" class="layui-btn layui-btn-primary"><?=L('tpl_ps_31')?></button>
+                </div>
+            </div>
+        </div>
+    </form>
+<script type="text/javascript">
+    cscms.init();
+</script>
+</body>
+</html>

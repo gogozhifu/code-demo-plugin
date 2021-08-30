@@ -1,0 +1,26 @@
+/**
+ * GOGO支付 - 更好的个人支付解决方案
+ * 免费注册使用、个人免签约、无手续费、实时回调
+ * https://www.gogozhifu.com
+ * WX: gump994
+ * QQ: 653107385
+ */
+
+Cscms接入GOGO支付实现个人免签约支付宝、微信收款插件 - 使用说明
+（本插件总共包含5个文件的更新）
+
+ 使用步骤：
+ 1.把三个文件夹都拷贝到你的CsCMS项目根目录下 （可以事先备份一下自己代码）
+
+ 2.找到 /tpl/你自己的模板目录/html/sys/pay.html 这个文件，打开编辑，找到“充值方式”，在默认的那些充值方式代码下面在加一行代码。
+ {if:[user:ggzf]==1}<input type="radio" name="type" value="ggzf-1" title="微信支付" checked/><input type="radio" name="type" value="ggzf-2" title="支付宝"/>{end if}
+
+
+ 3.登录后台 - 系统 - 网站支付配置，找到GOGO支付配置（没有GOGO支付商户帐号的直接跳转官网免费注册一个即可）
+
+ 4.填入APPID和APPSecret，保存，大功告成！去支付试试吧！
+
+
+ 其他说明：
+ 1.GOGO支付开通后要上传一下自己的个人收款码
+ 2.GOGO支付支持自行挂机监听收款和云端免挂机两种模式，具体的内容参考官网文档或联系客服。
