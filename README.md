@@ -14,6 +14,7 @@
 | gogozhifu-demo-php | PHP接入DEMO |
 | gogozhifu-maccms | 苹果CMSV10插件    |
 | gogozhifu_Cscms | Cscms4.2插件 |
+| gogozhifu-ecshop | ecshop个人支付 |
 
 
 <br/>
